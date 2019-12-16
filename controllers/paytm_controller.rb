@@ -1,8 +1,6 @@
 class PaytmController < ApplicationController
   include PaytmHelper
   before_action :authenticate_user!
-  include CurrentCart
-  before_action :set_cart
 
   def start_payment
     start_payment = Paytm::StartPaymentService.new(params, request)
